@@ -1,0 +1,3 @@
+mem(X,lst(X,Lst));
+
+mem(X,lst(Y,Lst)) :- mem(X,Lst);

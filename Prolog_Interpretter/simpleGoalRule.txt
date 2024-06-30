@@ -1,0 +1,40 @@
+mem(X,[X|Rem]);
+mem(X,[Y|Rem]) :- mem(X,Rem);
+
+del(X,[],[]);
+del(X,[X|Rem],Result) :- del(X,Rem,Result);
+del(X,[Y|Rem],[Y|Result]) :- del(X,Rem,Result);
+
+unionl([],S2,S2);
+unionl(S1,[],S1);
+unionl([X|R],S2,[X|Z]) :- del(X,S2,S3),unionl(R,S3,Z);
+
+append([],L,L);
+append([X|R],L,[X|Z]) :- append(R,L,Z);
+
+mem(tpl(X,Y),symm(R)) :- mem(tpl(X,Y),R);
+mem(tpl(X,Y),symm(R)) :- mem(tpl(Y,X),R);
+
+mem(tpl(X,X),rflxTransCls(R,S)) :- mem(X,S);
+mem(tpl(X,Y),rflxTransCls(R,S)) :- mem(tpl(X,Y),R);
+mem(tpl(X,Y),rflxTransCls(R,S)) :- 
+mem(Z,S),mem(tpl(X,Z),R),del(X,S,S1),
+mem(tpl(Z,Y),rflxTransCls(R,S1));
+
+male(rajRajan);male(siddthartha);male(aditya);male(ramesh);male(kishore);
+female(vanita);female(adriti);female(sita);female(indu);
+
+parent(vanita,siddthartha);parent(vanita,aditya);parent(vanita,adriti);
+parent(rajRajan,siddthartha);parent(rajRajan,aditya);parent(rajRajan,adriti);
+parent(indu,vanita);parent(kishore,vanita);
+parent(ramesh,rajRajan);parent(sita,rajRajan);
+
+father(X,Y) :- parent(X,Y),male(X);
+son(X,Y) :- parent(Y,X),male(X);
+mother(X,Y) :- parent(X,Y),female(X);
+daughter(X,Y) :- parent(Y,X),female(X);
+sibling(X,Y):- parent(Z,X),parent(Z,Y);
+brother(X,Y) :- male(X),sibling(X,Y);
+sister(X,Y) :- female(X),sibling(X,Y);
+grandParent(X,Y) :- parent(X,Z),parent(Z,Y);
+//simple relation tests here 

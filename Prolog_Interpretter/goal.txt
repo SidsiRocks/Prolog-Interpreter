@@ -1,0 +1,31 @@
+mem(X,[a,b,c,d,e]),mem(X,[c,d,Y]),mem(X,[e])  //mem(X,[a,b,c,d,e]),mem(X,[c,d,Y]),mem(X,[e])
+mem(X,[a,b,c,d,e]),mem(X,[a,c,e]) //mem(X,[a,b,c,d,e]),mem(X,[a,b,c,e])
+//c here
+//e here 
+//false here
+mem(X,[a,b,c]),mem(Y,[a,b]) // checking if two variables together work properly
+// 1
+// 2
+// 3
+// 4
+// 5
+del(a,[a,b,a,a,c,e],X) //has del(a , [a,b,a,a,c,e])
+unionl([a,b,c],[d,e],X) //has [a,b,c] [d,e]
+unionl([a,b,c],[a,d,b,c],X) // has [a,b,c] [a,b,d,c]
+append([a,b,c,d],[a,e],X)
+mem(tpl(a,b),symm([tpl(a,b)]))
+mem(tpl(a,b),symm([tpl(b,a)]))
+mem(tpl(a,c),symm([tpl(b,a)]))
+mem(tpl(a,a),rflxTransCls([tpl(a,b),tpl(b,c)],[a,b,c]))
+mem(tpl(a,b),rflxTransCls([tpl(a,b),tpl(b,c)],[a,b,c]))
+mem(tpl(a,c),rflxTransCls([tpl(a,b),tpl(b,c)],[a,b,c]))
+mem(tpl(c,a),rflxTransCls([tpl(a,b),tpl(b,c)],[a,b,c])) //testing lexer 
+father(rajRajan,siddthartha)
+mother(vanita,aditya)
+brother(siddthartha,aditya)
+brother(siddthartha,adriti)
+sister(adriti,siddthartha)
+grandParent(kishore,adriti)
+grandParent(ramesh,siddthartha)
+grandParent(indu,aditya)
+grandParent(sita,siddthartha)
